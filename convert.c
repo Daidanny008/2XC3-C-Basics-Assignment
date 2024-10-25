@@ -33,6 +33,15 @@ int check(int argc, char *argv[]) {
     }
 }
 
+/*
+convert
+> cast to positve, print "-"
+> get num % base
+> reduce
+> if not zero base case, call recursive
+> print % number, cast to char + 55 if digit >= 10, else print num as int
+*/
+
 int main(int argc, char *argv[]) {
     printf("%d\n", atoi("hello"));
     printf("%d\n", atoi("0"));
