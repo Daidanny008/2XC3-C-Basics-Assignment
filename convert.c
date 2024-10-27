@@ -5,13 +5,13 @@
  */
 
 /*
-Program Dev Checklist:
-- check => YES + YES HEADER
-    - usage => YES + YES HEADER
-    - help => NO + NO HEADER
-- UP => NO + NO HEADER
-    - ConvertNumToBase => YES + NO HEADER
-- main => NO + NO HEADER
+Program Dev Checklist: [done, header done]
+- check =>                  YES + YES HEADER
+    - usage =>              YES + YES HEADER
+    - help =>               NO  + NO  HEADER
+- UP =>                     NO  + NO  HEADER
+    - ConvertNumToBase =>   YES + YES HEADER
+- main =>                   NO  + NO  HEADER
 
 */
 
@@ -27,7 +27,31 @@ Program Dev Checklist:
 // .h file formats
     // int usage();
     // int check(int argc, char *argv[]);
+    // void ProcessingNum(int argc, char *argv[]);
 void ConvertNumToBase(long num, int base);
+
+/* pseudo code for processing num
+
+void ProcessingNum(int argc, char *argv[]) {
+
+    # argc == 1 -> NOT b and NOT r
+        while scanf until EOF
+        set base to 16
+    # argc == 3 -> b and NOT r
+        while scanf until EOF
+        set base 
+    # argc == 4 -> NOT b and r
+        for loop start -> finish
+        set base to 16
+    # argc == 6 -> b and r
+        for loop start -> finish
+        set base
+
+}
+
+
+*/
+
 
 /* ConvertNumToBase
  * 
