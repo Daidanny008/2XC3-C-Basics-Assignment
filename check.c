@@ -28,13 +28,17 @@ void usage() {
  * Returns: EXIT_SUCCESS, unless exit failure by usage
  */
 int check(int argc, char *argv[]) {
+    // Check for correct only 1 input count
+    if (argc == 1) {
+        return EXIT_SUCCESS;
+    }
     // Check for help called
-    if (argc == 2 & strcmp(argv[1], "--help") == 0) {
+    else if (argc == 2 & strcmp(argv[1], "--help") == 0) {
         //----------------------------------------------------|
         //-------------   MAKE A HELP FUNCTION   -------------|
         //----------------------------------------------------|
         puts("help");
-        return EXIT_SUCCESS;
+        exit(EXIT_SUCCESS);
     }
     // Check illegal number of inputs
     else if (argc == 2 | argc == 5 | argc > 6) {

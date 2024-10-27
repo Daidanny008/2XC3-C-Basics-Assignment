@@ -9,7 +9,7 @@ Program Dev Checklist: [done, header done]
 - check =>                  YES + YES HEADER
     - usage =>              YES + YES HEADER
     - help =>               NO  + NO  HEADER
-- UP =>                     NO  + NO  HEADER
+- ProcessingNum =>          NO  + NO  HEADER
     - ConvertNumToBase =>   YES + YES HEADER
 - main =>                   NO  + NO  HEADER
 
@@ -20,6 +20,7 @@ Program Dev Checklist: [done, header done]
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 // Include sub functions
 #include "check.h"
@@ -27,31 +28,8 @@ Program Dev Checklist: [done, header done]
 // .h file formats
     // int usage();
     // int check(int argc, char *argv[]);
-    // void ProcessingNum(int argc, char *argv[]);
+void ProcessingNum(int argc, char *argv[]);
 void ConvertNumToBase(long num, int base);
-
-/* pseudo code for processing num
-
-void ProcessingNum(int argc, char *argv[]) {
-
-    # argc == 1 -> NOT b and NOT r
-        while scanf until EOF
-        set base to 16
-    # argc == 3 -> b and NOT r
-        while scanf until EOF
-        set base 
-    # argc == 4 -> NOT b and r
-        for loop start -> finish
-        set base to 16
-    # argc == 6 -> b and r
-        for loop start -> finish
-        set base
-
-}
-
-
-*/
-
 
 /* ConvertNumToBase
  * 
@@ -91,10 +69,63 @@ void ConvertNumToBase(long num, int base) {
 
 }
 
+
+void ProcessingNum(int argc, char *argv[]) {
+
+    // # argc == 1 -> NOT b and NOT r
+    if (argc == 1) {
+
+        // Declare num and base, set base to 16
+        int base = 16;
+        long num;
+
+        // While scanf input until EOF
+        while (true) {
+
+            // Get next long
+            int result = scanf("%ld", &num);
+
+            // Check if long
+            if (result != 1) {
+                fprintf(stderr, "Error: Non-long-int token encountered.");
+                exit(EXIT_FAILURE);
+            }
+
+            // Check for EOF
+            if (result == EOF) 
+                break;
+
+            // convert long to base and print
+            ConvertNumToBase(num, base);
+            puts("");
+
+        }
+        
+    }
+    // # argc == 3 -> b and NOT r
+    else if (argc == 3) {
+        // while scanf until EOF
+        // set base 
+    }
+    // # argc == 4 -> NOT b and r
+    else if (argc == 4) {
+        // for loop start -> finish
+        // set base to 16
+    }
+    // # argc == 6 -> b and r
+    else if (argc == 6) {
+        // for loop start -> finish
+        // set base
+    } 
+
+}
+
+
 int main(int argc, char *argv[]) {
     //printf("%d\n", atoi("hello"));
     //printf("%d\n", atoi("0"));
     check(argc, argv); 
+    ProcessingNum(argc, argv);
 
     /* Correct test cases
     puts("");
