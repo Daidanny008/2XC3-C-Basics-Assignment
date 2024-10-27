@@ -4,111 +4,63 @@
  *
  */
 
+/*
+Program Dev Checklist:
+- check => YES + YES HEADER
+    - usage => YES + YES HEADER
+    - help => NO + NO HEADER
+- UP => NO + NO HEADER
+    - ConvertNumToBase => YES + NO HEADER
+- main => NO + NO HEADER
+
+*/
+
+
+// Include standard libraries
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+// Include sub functions
+#include "check.h"
+
 // .h file formats
-int usage();
-int check(int argc, char *argv[]);
+    // int usage();
+    // int check(int argc, char *argv[]);
 void ConvertNumToBase(long num, int base);
 
-int usage() {
-    fprintf(stderr, "Usage: convert [-b BASE] [-r START FINISH]\n");
-    fprintf(stderr, "\t1 < BASE < 37\n");
-    fprintf(stderr, "\tSTART and FINISH are long integer\n");
-    exit(EXIT_FAILURE);
-}
-
-int check(int argc, char *argv[]) {
-    // Check for help called
-    if (argc == 2 & strcmp(argv[1], "--help") == 0) {
-        //----------------------------------------------------|
-        //-------------   MAKE A HELP FUNCTION   -------------|
-        //----------------------------------------------------|
-        puts("help");
-        return EXIT_SUCCESS;
-    }
-    // Check illegal number of inputs
-    else if (argc == 2 | argc == 5 | argc > 6) {
-        usage();
-    }
-    // For 1 + 2 inputs
-    else if (argc == 3) {
-        // Check incorrect flag used
-        if (strcmp(argv[1], "-b") != 0) {
-            usage();
-        }
-        // Check incorrect base input
-        int base = atoi(argv[2]);
-        if (base <= 1 | base >= 37) {
-            usage();
-        }
-    }
-    // For 1 + 3 inputs
-    else if (argc == 4) {
-        // Check incorrect flag used
-        if (strcmp(argv[1], "-r") != 0) {
-            usage();
-        }
-        // Check incorrect long inputs
-        int long1 = atol(argv[2]);
-        if (long1 == 0 & *argv[2] != '0') {
-            usage();
-        }
-        int long2 = atol(argv[3]);
-        if (long2 == 0 & *argv[3] != '0') {
-            usage();
-        }
-    }
-    // For 1 + 2 + 3 inputs
-    else if (argc == 6) {
-        // Check incorrect flag used
-        if (strcmp(argv[1], "-b") != 0) {
-            usage();
-        }
-        // Check incorrect base input
-        int base = atoi(argv[2]);
-        if (base <= 1 | base >= 37) {
-            usage();
-        }
-
-        // Check incorrect flag used
-        if (strcmp(argv[3], "-r") != 0) {
-            usage();
-        }
-        // Check incorrect long input
-        int long1 = atol(argv[4]);
-        if (long1 == 0 & *argv[4] != '0') {
-            usage();
-        }
-        int long2 = atol(argv[5]);
-        if (long2 == 0 & *argv[5] != '0') {
-            usage();
-        }
-    }
-
-}
-
+/* ConvertNumToBase
+ * 
+ * Parameters: long num = current number, int base = base to be converted to
+ * Purpose: Prints out sign and converted number to the base, recursively
+ * Outputs: A signed number converted to the indicated base -> stdout
+ * Returns: None
+ */
 void ConvertNumToBase(long num, int base) {
 
+    // If negative, print sign and convert as positive
     if (num < 0) {
         num *= -1;
         printf("%s", "-");
     }
 
+    // Extract current value by modulo base
     int value = num % base;
 
+    // Update num by dividing base
     num /= base;
 
+    // 0 is base case, else call recursively first
     if (num > 0) {
         ConvertNumToBase(num, base);
     }
 
+    // Only print after base case is reached, to reverse order
     if (value < 10) {
         printf("%d", value);
     }
     else {
+        // Print A-Z as a char, mapped by +55 by ASCII
         char letter = value + 55;
         printf("%c", letter);
     }
