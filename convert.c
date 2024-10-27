@@ -6,12 +6,12 @@
 
 /*
 Program Dev Checklist: [done, header done]
-- check =>                  YES + YES HEADER
-    - usage =>              YES + YES HEADER
-    - help =>               NO  + NO  HEADER
-- ProcessingNum =>          NO  + NO  HEADER
-    - ConvertNumToBase =>   YES + YES HEADER
-- main =>                   NO  + NO  HEADER
+- main =>                       NO  + NO  HEADER
+    - check =>                  YES + YES HEADER
+        - usage =>              YES + YES HEADER
+        - help =>               NO  + NO  HEADER
+    - ProcessingNum =>          NO  + NO  HEADER
+        - ConvertNumToBase =>   YES + YES HEADER
 
 */
 
