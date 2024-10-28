@@ -11,78 +11,64 @@
  * Outputs: None if correct, 
  *          calls usage for invalid flags and input -> stderr
  *          calls help if flag is called -> stdout
- * Returns: EXIT_SUCCESS, unless exit failure by usage
+ * Returns: None
  */
-int check(int argc, char *argv[]) {
-    // Check for correct only 1 input count
+void check(int argc, char *argv[]) {
+
+    // Only 1 input is always accepted
     if (argc == 1) {
-        return EXIT_SUCCESS;
+        return;
     }
+
     // Check for help called
-    else if (argc == 2 & strcmp(argv[1], "--help") == 0) {
+    if (argc == 2 & strcmp(argv[1], "--help") == 0) {
         //----------------------------------------------------|
         //-------------   MAKE A HELP FUNCTION   -------------|
         //----------------------------------------------------|
         puts("help");
         exit(EXIT_SUCCESS);
     }
+
     // Check illegal number of inputs
-    else if (argc == 2 | argc == 5 | argc > 6) {
+    if (argc == 2 | argc == 5 | argc > 6) {
         usage();
     }
-    // For 1 + 2 inputs
-    else if (argc == 3) {
-        // Check incorrect flag used
-        if (strcmp(argv[1], "-b") != 0) {
-            usage();
+
+    // Loop through command line inputs
+    for (int i = 1; i < argc; i++) {
+
+        // Check for -b flag
+        if (strcmp(argv[i], "-b") == 0) {
+            // Check if valid base input
+            int base = atoi(argv[i+1]);
+            if (base <= 1 | base >= 37) {
+                usage();
+            }
+
+            // Add i to skip base input
+            i += 1;
+            
         }
-        // Check incorrect base input
-        int base = atoi(argv[2]);
-        if (base <= 1 | base >= 37) {
-            usage();
+        // Check for -r flag
+        else if (strcmp(argv[i], "-r") == 0) {
+            // Check incorrect long inputs
+            int long1 = atol(argv[i+1]);
+            if (long1 == 0 & *argv[i+1] != '0') {
+                usage();
+            }
+            int long2 = atol(argv[i+2]);
+            if (long2 == 0 & *argv[i+2] != '0') {
+                usage();
+            }
+
+            // Add i by 2 to skip long inputs
+            i += 2;
         }
-    }
-    // For 1 + 3 inputs
-    else if (argc == 4) {
-        // Check incorrect flag used
-        if (strcmp(argv[1], "-r") != 0) {
-            usage();
-        }
-        // Check incorrect long inputs
-        int long1 = atol(argv[2]);
-        if (long1 == 0 & *argv[2] != '0') {
-            usage();
-        }
-        int long2 = atol(argv[3]);
-        if (long2 == 0 & *argv[3] != '0') {
-            usage();
-        }
-    }
-    // For 1 + 2 + 3 inputs
-    else if (argc == 6) {
-        // Check incorrect flag used
-        if (strcmp(argv[1], "-b") != 0) {
-            usage();
-        }
-        // Check incorrect base input
-        int base = atoi(argv[2]);
-        if (base <= 1 | base >= 37) {
+        // Else not accepted flags -> usage to stderr
+        else {
             usage();
         }
 
-        // Check incorrect flag used
-        if (strcmp(argv[3], "-r") != 0) {
-            usage();
-        }
-        // Check incorrect long input
-        int long1 = atol(argv[4]);
-        if (long1 == 0 & *argv[4] != '0') {
-            usage();
-        }
-        int long2 = atol(argv[5]);
-        if (long2 == 0 & *argv[5] != '0') {
-            usage();
-        }
     }
 
 }
