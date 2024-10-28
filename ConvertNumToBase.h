@@ -1,0 +1,1 @@
+void ConvertNumToBase(long num, int base);

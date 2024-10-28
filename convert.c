@@ -6,15 +6,20 @@
 
 /*
 Program Dev Checklist: [done, header done]
-- main =>                       NO  + NO  HEADER
+- main =>                       YES  + NO  HEADER
     - check =>                  YES + YES HEADER
         - usage =>              YES + YES HEADER
-        - help =>               NO  + NO  HEADER
-    - ProcessingNum =>          NO  + NO  HEADER
+        - help =>               NO  + YES  HEADER
+    - ProcessingNum =>          YES  + YES  HEADER
         - ConvertNumToBase =>   YES + YES HEADER
-
+- NOT workflow => NOT built, NOT tested, NOT uploaded
+    - NOT build.yml from Lab 2.1
+    - NOT test_script -> gcov -> output from test.yml in Lab 4.2b
+    example: run: make ctest; ./test_script >test_results.txt; gcov ctest-convert.c
+- #define global constants for BASE_MIN, BASE_MAX
+- int base => local and single value return value
+- EXCLUDE EXE GCDA GCNO GCOV FILES FROM REPO
 */
-
 
 // Include standard libraries
 #include <stdio.h>
@@ -24,107 +29,19 @@ Program Dev Checklist: [done, header done]
 
 // Include sub functions
 #include "check.h"
+#include "ProcessingNum.h"
 
 // .h file formats
-    // int usage();
     // int check(int argc, char *argv[]);
-void ProcessingNum(int argc, char *argv[]);
-void ConvertNumToBase(long num, int base);
-
-/* ConvertNumToBase
- * 
- * Parameters: long num = current number, int base = base to be converted to
- * Purpose: Prints out sign and converted number to the base, recursively
- * Outputs: A signed number converted to the indicated base -> stdout
- * Returns: None
- */
-void ConvertNumToBase(long num, int base) {
-
-    // If negative, print sign and convert as positive
-    if (num < 0) {
-        num *= -1;
-        printf("%s", "-");
-    }
-
-    // Extract current value by modulo base
-    int value = num % base;
-
-    // Update num by dividing base
-    num /= base;
-
-    // 0 is base case, else call recursively first
-    if (num > 0) {
-        ConvertNumToBase(num, base);
-    }
-
-    // Only print after base case is reached, to reverse order
-    if (value < 10) {
-        printf("%d", value);
-    }
-    else {
-        // Print A-Z as a char, mapped by +55 by ASCII
-        char letter = value + 55;
-        printf("%c", letter);
-    }
-
-}
-
-
-void ProcessingNum(int argc, char *argv[]) {
-
-    // # argc == 1 -> NOT b and NOT r
-    if (argc == 1) {
-
-        // Declare num and base, set base to 16
-        int base = 16;
-        long num;
-
-        // While scanf input until EOF
-        while (true) {
-
-            // Get next long
-            int result = scanf("%ld", &num);
-
-            // Check if long
-            if (result != 1) {
-                fprintf(stderr, "Error: Non-long-int token encountered.");
-                exit(EXIT_FAILURE);
-            }
-
-            // Check for EOF
-            if (result == EOF) 
-                break;
-
-            // convert long to base and print
-            ConvertNumToBase(num, base);
-            puts("");
-
-        }
-        
-    }
-    // # argc == 3 -> b and NOT r
-    else if (argc == 3) {
-        // while scanf until EOF
-        // set base 
-    }
-    // # argc == 4 -> NOT b and r
-    else if (argc == 4) {
-        // for loop start -> finish
-        // set base to 16
-    }
-    // # argc == 6 -> b and r
-    else if (argc == 6) {
-        // for loop start -> finish
-        // set base
-    } 
-
-}
-
+        // void usage();
+        // void help();
+    // void ProcessingNum(int argc, char *argv[], int base);
+        // void ConvertNumToBase(long num, int base);
 
 int main(int argc, char *argv[]) {
 
-    check(argc, argv); 
-    ProcessingNum(argc, argv);
+    int base = check(argc, argv); // Check inputs, exit or return base
+    ProcessingNum(argc, argv, base); // Convert nums by flags and base
     
-    return EXIT_SUCCESS;
+    return EXIT_SUCCESS; // Exit program
 }

@@ -1,0 +1,1 @@
+void ProcessingNum(int argc, char *argv[], int base);
