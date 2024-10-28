@@ -7,6 +7,10 @@
 #include "usage.h"
 #include "help.h"
 
+// Declare global constants
+#define BASE_MIN 2
+#define BASE_MAX 36
+
 /* check
  * 
  * Parameters: int argc, char *argv[]
@@ -43,7 +47,7 @@ int check(int argc, char *argv[]) {
         if (strcmp(argv[i], "-b") == 0) {
             // Check if valid base input
             base = atoi(argv[i+1]);
-            if (base <= 1 | base >= 37) {
+            if (base < BASE_MIN | base > BASE_MAX) {
                 usage();
             }
 
@@ -74,7 +78,7 @@ int check(int argc, char *argv[]) {
     }
 
     // If valid base input, return it
-    if (base > 1 | base < 37) {
+    if (base >= BASE_MIN | base <= BASE_MAX) {
         return base;
     }
 

@@ -16,9 +16,9 @@ Program Dev Checklist: [done, header done]
     - NOT build.yml from Lab 2.1
     - NOT test_script -> gcov -> output from test.yml in Lab 4.2b
     example: run: make ctest; ./test_script >test_results.txt; gcov ctest-convert.c
-- #define global constants for BASE_MIN, BASE_MAX
-- int base => local and single value return value
-- EXCLUDE EXE GCDA GCNO GCOV FILES FROM REPO
+- NOT #define global constants for BASE_MIN, BASE_MAX
+- YES int base => local and single value return value
+- NOT EXCLUDE EXE GCDA GCNO GCOV FILES FROM REPO
 */
 
 // Include standard libraries
