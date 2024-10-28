@@ -122,31 +122,9 @@ void ProcessingNum(int argc, char *argv[]) {
 
 
 int main(int argc, char *argv[]) {
-    //printf("%d\n", atoi("hello"));
-    //printf("%d\n", atoi("0"));
+
     check(argc, argv); 
     ProcessingNum(argc, argv);
-
-    /* Correct test cases
-    puts("");
-    ConvertNumToBase(255, 16);
-    puts("\n");
-    ConvertNumToBase(192837, 16);
-    puts("\n");
-    ConvertNumToBase(9289389, 36);
-    puts("\n");
-    ConvertNumToBase(0, 36);
-    puts("\n");
-    ConvertNumToBase(-18273, 36);
-    puts("\n");
-    ConvertNumToBase(-3, 2);
-    puts("\n");
-    ConvertNumToBase(0, 2);
-    puts("\n");
-    ConvertNumToBase(3, 2);
-    puts("\n");
-    ConvertNumToBase(15, 16);
-    puts("\n");
-    */
+    
     return EXIT_SUCCESS;
 }

@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "usage.h"
+#include "help.h"
 
 /* check
  * 
@@ -22,11 +23,7 @@ void check(int argc, char *argv[]) {
 
     // Check for help called
     if (argc == 2 & strcmp(argv[1], "--help") == 0) {
-        //----------------------------------------------------|
-        //-------------   MAKE A HELP FUNCTION   -------------|
-        //----------------------------------------------------|
-        puts("help");
-        exit(EXIT_SUCCESS);
+        help();
     }
 
     // Check illegal number of inputs
