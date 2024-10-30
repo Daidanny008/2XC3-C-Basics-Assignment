@@ -25,11 +25,36 @@ void ProcessingNum(int argc, char *argv[], int base) {
         // Declare num 
         long num;
 
+        /* Use this part and next commented out line break to not end with new line
+
+        // Get next long
+        int result = scanf("%ld", &num);
+
+        // Check if long
+        if (result != 1) {
+            fprintf(stderr, "Error: Non-long-int token encountered.");
+            exit(EXIT_FAILURE);
+        }
+
+        // convert long to base and print
+        ConvertNumToBase(num, base);
+
+        */
+
         // While scanf input until EOF
         while (true) {
 
             // Get next long
             int result = scanf("%ld", &num);
+
+            // Check for EOF
+            if (result == EOF) 
+                break;
+
+            /* to line break before output
+            // Line break
+            puts("");
+            */
 
             // Check if long
             if (result != 1) {
@@ -37,12 +62,10 @@ void ProcessingNum(int argc, char *argv[], int base) {
                 exit(EXIT_FAILURE);
             }
 
-            // Check for EOF
-            if (result == EOF) 
-                break;
-
             // convert long to base and print
             ConvertNumToBase(num, base);
+
+            // Line break after output
             puts("");
 
         }

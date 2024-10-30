@@ -13,7 +13,7 @@
 
 void usage() {
     fprintf(stderr, "Usage: convert [-b BASE] [-r START FINISH]\n");
-    fprintf(stderr, "\t1 < BASE < 37\n");
-    fprintf(stderr, "\tSTART and FINISH are long integer\n");
+    fprintf(stderr, "       1 < BASE < 37\n");
+    fprintf(stderr, "       START and FINISH are long integers");
     exit(EXIT_FAILURE);
 }
