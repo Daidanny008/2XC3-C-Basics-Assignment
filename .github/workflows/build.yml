@@ -17,4 +17,16 @@ jobs:
         uses: actions/upload-artifact@v4	
         with:
           name: ctest			
-          path: ./ctest		
+          path: ./ctest
+
+      - name: Run Tests
+        run: ./test_script > test_results.txt
+
+      - name: Upload Test Results
+        if: ${{ always() }}
+
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test Results
+          path: ./test_results.txt
+      
