@@ -1,4 +1,4 @@
-name: build script for ctest.c		
+name: build and test script for ctest.c		
 
 on:							
   push:
@@ -10,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4		
 
-      - name: build ctest	and Run Tests		
+      - name: Build ctest	and Run Tests		
         run: make ctest; ./test_script > test_results.txt
 
-      - name: upload binary			
+      - name: Upload Binary			
         uses: actions/upload-artifact@v4	
         with:
           name: ctest			
