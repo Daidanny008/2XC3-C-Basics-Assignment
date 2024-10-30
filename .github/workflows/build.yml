@@ -5,13 +5,13 @@ on:
     branches: [ "main" ]			
 
 jobs:
-  test:						
+  build:						
     runs-on: ubuntu-latest			
     steps:
       - uses: actions/checkout@v4		
 
       - name: build ctest			
-        run: gcc -o ctest --coverage convert.c check.c usage.c help.c ProcessingNum.c ConvertNumToBase.c
+        run: make ctest
 
       - name: upload binary			
         uses: actions/upload-artifact@v4	
@@ -19,8 +19,11 @@ jobs:
           name: ctest			
           path: ./ctest
 
+  test:						
+    runs-on: ubuntu-latest			
+    steps:
       - name: Run Tests
-        run: ./test_script > test_results.txt
+        run: make ctest; ./test_script > test_results.txt
 
       - name: Upload Test Results
         if: ${{ always() }}
