@@ -23,7 +23,8 @@ jobs:
     runs-on: ubuntu-latest			
     steps:
       - name: Run Tests
-        run: make ctest; ./test_script > test_results.txt
+        run: make ctest
+        run: ./test_script > test_results.txt
 
       - name: Upload Test Results
         if: ${{ always() }}
