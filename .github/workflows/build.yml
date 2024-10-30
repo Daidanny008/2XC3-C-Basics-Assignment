@@ -13,11 +13,7 @@ jobs:
       - name: build ctest			
         run: make ctest
 
-      - name: upload binary			
-        uses: actions/upload-artifact@v4	
-        with:
-          name: ctest			
-          path: ./ctest
+      
 
       - name: Run Tests
         run: ./test_script > test_results.txt
