@@ -1,0 +1,20 @@
+name: build script for ctest.c		
+
+on:							
+  push:
+    branches: [ "main" ]			
+
+jobs:
+  build:						
+    runs-on: ubuntu-latest			
+    steps:
+      - uses: actions/checkout@v4		
+
+      - name: build ctest			
+        run: gcc -o ctest --coverage convert.c check.c usage.c help.c ProcessingNum.c ConvertNumToBase.c
+
+      - name: upload binary			
+        uses: actions/upload-artifact@v4	
+        with:
+          name: ctest			
+          path: ./ctest		
