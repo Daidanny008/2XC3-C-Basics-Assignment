@@ -75,9 +75,25 @@ test() {
     echo "TC $tc Passed"
 }
 
+# Examples
 test './ctest' 'inp1.txt' 'ex_out1.txt' 'empty.txt'
 test './ctest -b 2' 'inp2.txt' 'ex_out2.txt' 'empty.txt'
 test './ctest -a' 'empty.txt' 'empty.txt' 'usage.txt'
+
+# Correct test cases, testing flags
+test './ctest' 'inp3.txt' 'out3.txt' 'empty.txt'
+test './ctest -b 36' 'inp4.txt' 'out4.txt' 'empty.txt'
+test './ctest -b 2 -r -3 3' 'empty.txt' 'out5.txt' 'empty.txt'
+test './ctest -r 10 0' 'empty.txt' 'empty.txt' 'empty.txt'
+
+# Error Cases
+test './ctest' 'inp6.txt' 'out6.txt' 'nonIntError.txt'
+test './ctest -b 37' 'empty.txt' 'empty.txt' 'usage.txt'
+test './ctest -a -b 23' 'empty.txt' 'empty.txt' 'usage.txt'
+test './ctest -b 123 -r 1 2 3' 'empty.txt' 'empty.txt' 'usage.txt'
+
+# Test help function
+test './ctest --help' 'empty.txt' 'help.txt' 'empty.txt'
 
 # clean up
 rm test_err.txt test_out.txt

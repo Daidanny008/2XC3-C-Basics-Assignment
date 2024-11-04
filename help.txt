@@ -1,0 +1,15 @@
+Title:    Convert
+Version:  v1.0.0
+Overview: Converts number in base 10 to desired base
+Usage:    convert [-b BASE] [-r START FINISH]
+          1 < BASE < 37
+          START and FINISH are long integers
+Options:
+      -b  [int]
+              convert to base int, 2 <= int <= 36
+              default is base 10
+      -r  [long1] [long2]
+              convert nums for long1 to long2
+              default takes in user input while valid
+      --help
+              Output help message and exits
