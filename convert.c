@@ -10,13 +10,13 @@
  */
 
 /*
-Program Dev Checklist: [done, header done]
-- main =>                       YES  + YES  HEADER
-    - check =>                  YES + YES HEADER
-        - usage =>              YES + YES HEADER
-        - help =>               YES  + YES  HEADER
-    - ProcessingNum =>          YES  + YES  HEADER
-        - ConvertNumToBase =>   YES + YES HEADER
+Program Dev Checklist: [done, header done, coverage]
+- main =>                       YES  + YES  HEADER + 100%
+    - check =>                  YES  + YES  HEADER + 54.17%
+        - usage =>              YES  + YES  HEADER + 100%
+        - help =>               YES  + YES  HEADER + 0%
+    - ProcessingNum =>          YES  + YES  HEADER + 58.82%
+        - ConvertNumToBase =>   YES  + YES  HEADER + 84.62%
 - YES workflow => YES built, YES tested, YES uploaded
     - YES build.yml from Lab 2.1
     - NOT test_script -> gcov -> output from test.yml in Lab 4.2b
