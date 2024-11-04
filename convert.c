@@ -14,11 +14,11 @@ Program Dev Checklist: [done, header done]
 - main =>                       YES  + YES  HEADER
     - check =>                  YES + YES HEADER
         - usage =>              YES + YES HEADER
-        - help =>               NO  + YES  HEADER
+        - help =>               YES  + YES  HEADER
     - ProcessingNum =>          YES  + YES  HEADER
         - ConvertNumToBase =>   YES + YES HEADER
-- NOT workflow => NOT built, NOT tested, NOT uploaded
-    - NOT build.yml from Lab 2.1
+- YES workflow => YES built, YES tested, YES uploaded
+    - YES build.yml from Lab 2.1
     - NOT test_script -> gcov -> output from test.yml in Lab 4.2b
     example: run: make ctest; ./test_script >test_results.txt; gcov ctest-convert.c
 - YES? #define global constants for BASE_MIN, BASE_MAX
