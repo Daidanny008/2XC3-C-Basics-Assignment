@@ -51,11 +51,6 @@ void ProcessingNum(int argc, char *argv[], int base) {
             if (result == EOF) 
                 break;
 
-            /* to line break before output
-            // Line break
-            puts("");
-            */
-
             // Check if long
             if (result != 1) {
                 fprintf(stderr, "Error: Non-long-int token encountered.");

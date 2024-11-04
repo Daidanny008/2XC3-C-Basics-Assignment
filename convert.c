@@ -9,23 +9,6 @@
  * Exit failure if any stderr, else exit success if all converted correctly.
  */
 
-/*
-Program Dev Checklist: [done, header done, coverage]
-- main =>                       YES  + YES  HEADER + 100%
-    - check =>                  YES  + YES  HEADER + 54.17%
-        - usage =>              YES  + YES  HEADER + 100%
-        - help =>               YES  + YES  HEADER + 0%
-    - ProcessingNum =>          YES  + YES  HEADER + 58.82%
-        - ConvertNumToBase =>   YES  + YES  HEADER + 84.62%
-- YES workflow => YES built, YES tested, YES uploaded
-    - YES build.yml from Lab 2.1
-    - YES test_script -> gcov -> output from test.yml in Lab 4.2b
-    example: run: make ctest; ./test_script >test_results.txt; gcov ctest-convert.c
-- YES? #define global constants for BASE_MIN, BASE_MAX
-- YES int base => local and single value return value
-- YES EXCLUDE EXE GCDA GCNO GCOV FILES FROM REPO
-*/
-
 // Include standard libraries
 #include <stdio.h>
 #include <stdlib.h>
