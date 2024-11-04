@@ -19,11 +19,11 @@ Program Dev Checklist: [done, header done, coverage]
         - ConvertNumToBase =>   YES  + YES  HEADER + 84.62%
 - YES workflow => YES built, YES tested, YES uploaded
     - YES build.yml from Lab 2.1
-    - NOT test_script -> gcov -> output from test.yml in Lab 4.2b
+    - YES test_script -> gcov -> output from test.yml in Lab 4.2b
     example: run: make ctest; ./test_script >test_results.txt; gcov ctest-convert.c
 - YES? #define global constants for BASE_MIN, BASE_MAX
 - YES int base => local and single value return value
-- NOT EXCLUDE EXE GCDA GCNO GCOV FILES FROM REPO
+- YES EXCLUDE EXE GCDA GCNO GCOV FILES FROM REPO
 */
 
 // Include standard libraries
