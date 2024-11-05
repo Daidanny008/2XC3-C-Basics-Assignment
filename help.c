@@ -12,10 +12,8 @@
  */
 
 void help() {
-    //----------------------------------------------------|
-    //-------------   MAKE A HELP FUNCTION   -------------|
-    //----------------------------------------------------|
 
+    // Help message
     puts("Title:    Convert");
     puts("Version:  v1.0.0");
     puts("Overview: Converts number in base 10 to desired base");
@@ -32,5 +30,6 @@ void help() {
     puts("      --help");
     puts("              Output help message and exits");
 
+    // Exit program code 0
     exit(EXIT_SUCCESS);
 }

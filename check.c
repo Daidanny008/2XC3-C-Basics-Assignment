@@ -13,12 +13,12 @@
 
 /* check
  * 
- * Parameters: int argc, char *argv[]
- * Purpose: Checks for --help flag, invalid flags, or invalid input values
- * Outputs: None if correct, 
- *          calls usage for invalid flags and input -> stderr
- *          calls help if flag is called -> stdout
- * Returns: None
+ * Parameters:  int argc, char *argv[]
+ * Purpose:     Checks for --help flag, invalid flags, or invalid input values
+ * Outputs:     None if correct, 
+ *              calls usage for invalid flags and input -> stderr
+ *              calls help if flag is called -> stdout
+ * Returns:     None
  */
 int check(int argc, char *argv[]) {
 
