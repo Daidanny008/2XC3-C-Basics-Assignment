@@ -17,7 +17,7 @@
  * Returns:     None
  */
 
-void ProcessingNum(int argc, char *argv[], int base) {
+void ProcessingNum(int argc, char *argv[], int base, long start, long finish) {
 
     // if NOT r
     if (argc <= 3) {
@@ -51,9 +51,6 @@ void ProcessingNum(int argc, char *argv[], int base) {
     }
     // Else if r
     else {
-        // Get longs start num and finish num
-        long start = atol(argv[argc-2]);
-        long finish = atol(argv[argc-1]);
 
         // loop through start to finish, inclusive
         for (long num = start; num <= finish; num++) {

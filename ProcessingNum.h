@@ -1,1 +1,1 @@
-void ProcessingNum(int argc, char *argv[], int base);
+void ProcessingNum(int argc, char *argv[], int base, long start, long finish);

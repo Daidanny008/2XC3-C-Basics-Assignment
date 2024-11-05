@@ -84,6 +84,7 @@ test './ctest -a' 'empty.txt' 'empty.txt' 'usage.txt'
 test './ctest' 'inp3.txt' 'out3.txt' 'empty.txt'
 test './ctest -b 36' 'inp4.txt' 'out4.txt' 'empty.txt'
 test './ctest -b 2 -r -3 3' 'empty.txt' 'out5.txt' 'empty.txt'
+test './ctest -r -3 3 -b 2' 'empty.txt' 'out5.txt' 'empty.txt'
 test './ctest -r 10 0' 'empty.txt' 'empty.txt' 'empty.txt'
 
 # Error Cases

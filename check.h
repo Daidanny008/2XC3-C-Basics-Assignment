@@ -1,1 +1,1 @@
-int check(int argc, char *argv[]);
+int check(int argc, char *argv[], long *start, long *finish);

@@ -20,14 +20,14 @@
  *              calls help if flag is called -> stdout
  * Returns:     None
  */
-int check(int argc, char *argv[]) {
+int check(int argc, char *argv[], long *start, long *finish) {
 
     // Declare base
-    int base = 0;
+    int base = 16;
 
     // Only 1 input is always accepted
     if (argc == 1) {
-        return 16;
+        return base;
     }
 
     // Check for help called
@@ -62,9 +62,15 @@ int check(int argc, char *argv[]) {
             if (long1 == 0 & *argv[i+1] != '0') {
                 usage();
             }
+            else {
+                *start = long1;
+            }
             long long2 = atol(argv[i+2]);
             if (long2 == 0 & *argv[i+2] != '0') {
                 usage();
+            }
+            else {
+                *finish = long2;
             }
 
             // Add i by 2 to skip long inputs

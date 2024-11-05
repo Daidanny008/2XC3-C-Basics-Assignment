@@ -39,8 +39,10 @@
  */
 int main(int argc, char *argv[]) {
 
-    int base = check(argc, argv); // Check inputs, exit or return base
-    ProcessingNum(argc, argv, base); // Convert nums by flags and base
+    long start, finish;
+
+    int base = check(argc, argv, &start, &finish); // Check inputs, exit or return base
+    ProcessingNum(argc, argv, base, start, finish); // Convert nums by flags and base
     
     return EXIT_SUCCESS; // Exit program
 }
