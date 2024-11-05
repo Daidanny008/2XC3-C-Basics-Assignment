@@ -10,8 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4		
 
-      - name: Build convert, ctest, and Run Tests		
-        run: make convert; make ctest; ./test_script > test_results.txt; gcov ctest-convert.c; gcov ctest-check.c; gcov ctest-ConvertNumToBase.c; gcov ctest-ProcessingNum.c; gcov ctest-usage.c; gcov ctest-help.c
+      - name: Build convert, ctest	
+        run: make convert; make ctest
+
+      - name: Build convert, ctest, Run Tests, Get gcov Coverage Report		
+        run: ./test_script > test_results.txt; gcov ctest-convert.c; gcov ctest-check.c; gcov ctest-ConvertNumToBase.c; gcov ctest-ProcessingNum.c; gcov ctest-usage.c; gcov ctest-help.c
 
       - name: Upload ctest executable			
         uses: actions/upload-artifact@v4	
