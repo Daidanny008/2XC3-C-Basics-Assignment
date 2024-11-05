@@ -15,7 +15,7 @@ void help() {
 
     // Help message
     puts("Title:    Convert");
-    puts("Version:  v1.0.0");
+    puts("Version:  v1.0.1");
     puts("Overview: Converts number in base 10 to desired base");
     puts("Usage:    convert [-b BASE] [-r START FINISH]");
     puts("          1 < BASE < 37");
