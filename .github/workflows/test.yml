@@ -13,8 +13,11 @@ jobs:
       - name: Build convert, ctest	
         run: make convert; make ctest
 
-      - name: Build convert, ctest, Run Tests, Get gcov Coverage Report		
-        run: ./test_script > test_results.txt; gcov ctest-convert.c; gcov ctest-check.c; gcov ctest-ConvertNumToBase.c; gcov ctest-ProcessingNum.c; gcov ctest-usage.c; gcov ctest-help.c
+      - name: Run Tests	
+        run: ./test_script > test_results.txt
+
+      - name: Get Coverage Report		
+        run: gcov ctest-convert.c; gcov ctest-check.c; gcov ctest-ConvertNumToBase.c; gcov ctest-ProcessingNum.c; gcov ctest-usage.c; gcov ctest-help.c
 
       - name: Upload ctest executable			
         uses: actions/upload-artifact@v4	
