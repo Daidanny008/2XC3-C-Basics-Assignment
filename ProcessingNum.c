@@ -8,8 +8,10 @@
 
 /* ProcessingNum
  * 
- * Parameters:  int argc, char *argv[],  
- *              int base = inputted base to convert num (default 16)
+ * Parameters:  int argc, 
+ *              int base = inputted base to convert num (default 16),
+ *              long start = start number of conversion if -r, 
+ *              long finish = end number of conversion if -r
  * Purpose:     Outputs num converted to the base, while valid long inputs
  *              from stdin, or for loop through -r flag inputs
  * Outputs:     converted nums while valid, 
@@ -17,7 +19,7 @@
  * Returns:     None
  */
 
-void ProcessingNum(int argc, char *argv[], int base, long start, long finish) {
+void ProcessingNum(int argc, int base, long start, long finish) {
 
     // if NOT r
     if (argc <= 3) {

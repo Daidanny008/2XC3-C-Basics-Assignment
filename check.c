@@ -14,6 +14,8 @@
 /* check
  * 
  * Parameters:  int argc, char *argv[]
+ *              long start = start number of conversion if -r, 
+ *              long finish = end number of conversion if -r
  * Purpose:     Checks for --help flag, invalid flags, or invalid input values
  * Outputs:     None if correct, 
  *              calls usage for invalid flags and input -> stderr
@@ -57,7 +59,8 @@ int check(int argc, char *argv[], long *start, long *finish) {
         }
         // Check for -r flag
         else if (strcmp(argv[i], "-r") == 0) {
-            // Check incorrect long inputs
+
+            // Check incorrect long input start, else assign input to start by side effect
             long long1 = atol(argv[i+1]);
             if (long1 == 0 & *argv[i+1] != '0') {
                 usage();
@@ -65,6 +68,8 @@ int check(int argc, char *argv[], long *start, long *finish) {
             else {
                 *start = long1;
             }
+
+            // Check incorrect long input finish, else assign input to finish by side effect
             long long2 = atol(argv[i+2]);
             if (long2 == 0 & *argv[i+2] != '0') {
                 usage();
