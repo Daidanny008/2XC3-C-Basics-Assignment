@@ -61,21 +61,15 @@ int check(int argc, char *argv[], long *start, long *finish) {
         else if (strcmp(argv[i], "-r") == 0) {
 
             // Check incorrect long input start, else assign input to start by side effect
-            long long1 = atol(argv[i+1]);
-            if (long1 == 0 & *argv[i+1] != '0') {
+            *start = atol(argv[i+1]);
+            if (*start == 0 & *argv[i+1] != '0') {
                 usage();
-            }
-            else {
-                *start = long1;
             }
 
             // Check incorrect long input finish, else assign input to finish by side effect
-            long long2 = atol(argv[i+2]);
-            if (long2 == 0 & *argv[i+2] != '0') {
+            *finish = atol(argv[i+2]);
+            if (*finish == 0 & *argv[i+2] != '0') {
                 usage();
-            }
-            else {
-                *finish = long2;
             }
 
             // Add i by 2 to skip long inputs
@@ -88,9 +82,7 @@ int check(int argc, char *argv[], long *start, long *finish) {
 
     }
 
-    // If valid base input, return it
-    if (base >= BASE_MIN | base <= BASE_MAX) {
-        return base;
-    }
-
+    // return base
+    return base;
+    
 }
