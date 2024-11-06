@@ -60,6 +60,11 @@ int check(int argc, char *argv[], long *start, long *finish) {
         // Check for -r flag
         else if (strcmp(argv[i], "-r") == 0) {
 
+            // Check segmentation fault
+            if (i+2 > argc - 1) {
+                usage();
+            }
+
             // Check incorrect long input start, else assign input to start by side effect
             *start = atol(argv[i+1]);
             if (*start == 0 & *argv[i+1] != '0') {

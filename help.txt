@@ -1,5 +1,5 @@
 Title:    Convert
-Version:  v1.0.2
+Version:  v1.0.3
 Overview: Converts number in base 10 to desired base
 Usage:    convert [-b BASE] [-r START FINISH]
           1 < BASE < 37
