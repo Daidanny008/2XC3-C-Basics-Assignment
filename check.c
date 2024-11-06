@@ -20,7 +20,7 @@
  * Outputs:     None if correct, 
  *              calls usage for invalid flags and input -> stderr
  *              calls help if flag is called -> stdout
- * Returns:     None
+ * Returns:     int base
  */
 int check(int argc, char *argv[], long *start, long *finish) {
 
